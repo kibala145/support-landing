@@ -1,0 +1,16 @@
+@mixin _typography-default() {
+  font-style: normal;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+@mixin typography-base() {
+  @include _typography-default;
+  font-family: $font-primary;
+}
+
+@mixin typography-text($fontSize, $lineHeight) {
+  @include typography-base;
+  font-size: $fontSize;
+  line-height: $lineHeight;
+}

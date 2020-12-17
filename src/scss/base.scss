@@ -1,0 +1,10 @@
+:root {
+  font-size: 10px;
+}
+
+body {
+  @include typography-base;
+  margin: 0;
+  font-size: 1.6rem;
+  min-height: 100vh;
+}
