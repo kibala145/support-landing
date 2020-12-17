@@ -1,4 +1,4 @@
-@import './../../scss/mixins/';
+@import '@/scss/mixins/';
 
 .AppDialog {
   position: absolute;
@@ -6,7 +6,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #050012;
+  background-color: var(--color-black);
   color: #fff;
   &__inner {
     max-width: 122.4rem;

@@ -6,7 +6,7 @@
 
 @mixin typography-base() {
   @include _typography-default;
-  font-family: $font-primary;
+  font-family: var(--font-primary);
 }
 
 @mixin typography-text($fontSize, $lineHeight) {
