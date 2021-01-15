@@ -1,0 +1,47 @@
+@import 'Mixins';
+
+.AppDialogUsecase {
+  &__nav {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 7.2rem;
+    margin: auto 1.2rem 0;
+    @include min-width($--md) {
+      flex-direction: row;
+    }
+  }
+  &__button {
+    @include button--unstyled;
+    @include text(1.2rem, 1.4rem);
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    color: var(--color-red);
+    &:not(:first-child) {
+      margin-bottom: 3.6rem;
+      @include min-width($--md) {
+        margin-bottom: 0;
+      }
+    }
+  }
+  &__buttonPrev {
+    margin-right: auto;
+    svg {
+      transform: rotate(-90deg);
+    }
+    span {
+      margin-left: 2rem;
+    }
+  }
+  &__buttonNext {
+    margin-left: auto;
+    svg {
+      transform: rotate(90deg);
+    }
+    span {
+      margin-right: 2rem;
+    }
+  }
+}

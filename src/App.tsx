@@ -1,57 +1,45 @@
-import React, { MouseEventHandler, useState } from 'react'
-import logo from './logo.svg'
-import { animated, useTransition } from 'react-spring'
-import AppDialog from './components/AppDialog/AppDialog'
-import Polytech from './components/usecases/Polytech/Polytech'
+import React from 'react'
+import styles from './App.module.scss'
+
+import { UsecasesModalProvider } from './contexts/UsecasesModalContext'
+import { BreakpointProviderDefault } from './contexts/ViewportContext'
+
+import SectionMain from './components/sections/SectionMain/SectionMain'
+import SectionBubbles from './components/sections/SectionBubbles/SectionBubbles'
+import SectionForEvents from './components/sections/SectionForEvents/SectionForEvents'
+import SectionForProjects from './components/sections/SectionForProjects/SectionForProjects'
+import SectionForEmployee from './components/sections/SectionForEmployee/SectionForEmployee'
+import SectionForServices from './components/sections/SectionForServices/SectionForServices'
+import SectionHowWeWork from './components/sections/SectionHowWeWork/SectionHowWeWork'
+import SectionUsecases from './components/sections/SectionUsecases/SectionUsecases'
+import SectionBuySupport from './components/sections/SectionBuySupport/SectionBuySupport'
+import SectionReasons from './components/sections/SectionReasons/SectionReasons'
+import SectionDistractionNote from './components/sections/SectionDistractionNote/SectionDistractionNote'
+
+const sectionsAccordion = [SectionForEvents, SectionForProjects, SectionForEmployee, SectionForServices] as const
 
 function App() {
-  const clipPathStyle = (position: { x: number; y: number }, isEnter = false) =>
-    `circle(${isEnter ? 200 : 0}% at ${position.x}% ${position.y}%)`
-
-  const [isActive, setIsActive] = useState(false)
-  const [circlePosition, setCirclePosition] = useState({ x: 0, y: 0 })
-  const transitions = useTransition(isActive, null, {
-    from: {
-      clipPath: clipPathStyle(circlePosition)
-    },
-    enter: {
-      clipPath: clipPathStyle(circlePosition, true)
-    },
-    leave: {
-      clipPath: clipPathStyle(circlePosition)
-    },
-    unique: true
-  })
-
-  const toggleDialog: MouseEventHandler = ({ clientX: x, clientY: y }) => {
-    const { x: targetX, y: targetY, width, height } = document.body.getBoundingClientRect()
-    const circleX = ((x - targetX) / width) * 100
-    const circleY = ((y - targetY) / height) * 100
-    const circlePosition = {
-      x: circleX,
-      y: circleY
-    }
-    setCirclePosition(circlePosition)
-    setIsActive(!isActive)
-  }
-
   return (
-    <div>
-      <div style={{ cursor: 'pointer', width: '40vmin' }} onClick={toggleDialog}>
-        <img style={{ width: '100%' }} src={logo} alt="logo" />
-      </div>
-      <p>Освободить фронт-офисные службы от рутины.</p>
-      {transitions.map(
-        ({ item, key, props, state }) =>
-          item && (
-            <animated.div key={key} style={{ ...props, position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
-              <AppDialog onClose={state === 'leave' ? undefined : toggleDialog}>
-                <Polytech />
-              </AppDialog>
-            </animated.div>
-          )
-      )}
-    </div>
+    <BreakpointProviderDefault>
+      <UsecasesModalProvider>
+        <div className={styles.App}>
+          <div className={styles.App__groupTop}>
+            <SectionMain className={styles.App__SectionMain} />
+            <SectionBubbles className={styles.App__SectionBubbles} />
+          </div>
+          <SectionDistractionNote className={styles.App__SectionDistractionNote} />
+          {sectionsAccordion.map((Item, index) => (
+            <Item key={index} className={styles.App__SectionAccordion} />
+          ))}
+          <div className={styles.App__groupMain}>
+            <SectionHowWeWork className={styles.App__SectionHowWeWork} />
+            <SectionUsecases className={styles.App__SectionUsecases} />
+            <SectionReasons className={styles.App__SectionReasons} />
+          </div>
+          <SectionBuySupport id="formOrder" className={styles.App__SectionBuySupport} />
+        </div>
+      </UsecasesModalProvider>
+    </BreakpointProviderDefault>
   )
 }
 

@@ -1,0 +1,158 @@
+@import 'Mixins';
+.SectionHowWeWork {
+  background-image: url('./bg.png'), url('./rect_blue.png');
+  background-repeat: no-repeat;
+  background-size: 100vw 130vw, 100vw 70vw;
+  // background-color: var(--color-purple-bg);
+  background-position: 0 0, 0 100%;
+  overflow: hidden;
+  &__cards {
+    margin-top: 8rem;
+    display: flex;
+    flex-direction: column;
+  }
+  & > div {
+    padding-bottom: 15rem;
+    @include min-width($--md) {
+      max-width: 100%;
+      padding: 0 0 15rem;
+    }
+    @include min-width($--lg) {
+      padding-bottom: 28rem;
+    }
+  }
+  &__AppCardAction {
+    width: 100%;
+    position: relative;
+    overflow: visible;
+    @include min-width($--md) {
+      max-width: 55rem;
+    }
+    @include min-width($--lg) {
+      max-width: 90rem;
+    }
+    @include min-width($--xl) {
+      max-width: 105rem;
+    }
+    &:nth-child(2n-1) {
+      @include min-width($--md) {
+        margin-right: 20.5rem;
+        margin-left: auto;
+      }
+      @include min-width($--lg) {
+        margin-right: 41.7rem;
+      }
+    }
+    &:nth-child(2n) {
+      @include min-width($--md) {
+        margin-right: auto;
+        margin-left: 17.7rem;
+      }
+      @include min-width($--lg) {
+        margin-left: 31.1rem;
+      }
+    }
+    &:not(:first-child) {
+      margin-top: 11.4rem;
+      @include min-width($--lg) {
+        margin-top: 13.2rem;
+      }
+    }
+    &:nth-child(1)::after,
+    &:nth-child(3)::after {
+      content: '';
+      display: block;
+      width: 58.8rem;
+      height: 37.7rem;
+      background-image: url('~@/images/icons/howWeWork/hand1.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      position: absolute;
+      left: 100%;
+      top: 0;
+      transform: translateX(-19.9rem);
+      @include min-width($--md) {
+        background-image: url('~@/images/icons/howWeWork/hand2.svg');
+        width: 45rem;
+        height: 33.6rem;
+      }
+    }
+    &:nth-child(1) {
+      @include min-width($--md) {
+        &::after {
+          transform: translate(-6.5rem, 23rem) rotate(-10deg);
+        }
+      }
+      @include min-width($--lg) {
+        [class*='body'] {
+          padding-right: 10rem;
+        }
+        &::after {
+          background-image: url('~@/images/icons/howWeWork/hand3.svg');
+          width: 54.3rem;
+          height: 51.9rem;
+          transform: translate(-12.6rem, -41.7rem);
+        }
+      }
+    }
+    &:nth-child(2)::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-image: url('~@/images/icons/howWeWork/hand4.svg');
+      height: 37.7rem;
+      width: 58.8rem;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: right;
+      transform: translate(-39rem, 23.1rem);
+      @include min-width($--md) {
+        transform: translate(-43rem, 20.6rem);
+        height: 30rem;
+      }
+      @include min-width($--lg) {
+        transform: translate(-37.5rem, 17.1rem);
+        height: 45rem;
+      }
+    }
+    &:nth-child(3) {
+      @include min-width($--lg) {
+        margin-right: 28.8rem;
+      }
+      &::after {
+        @include min-width($--md) {
+          transform: translate(-6.5rem, 23.6rem) rotate(-10deg);
+        }
+        @include min-width($--lg) {
+          width: 50rem;
+          height: 45rem;
+          background-size: contain;
+          transform: translate(-11.6rem, 28.6rem);
+        }
+      }
+    }
+  }
+  &__AppBubbleTextWrapper {
+    padding: 0 1.2rem;
+    margin: 0 auto;
+    max-width: 104.6rem;
+  }
+  &__AppBubbleText {
+    @include text(1.4rem, 2.6rem);
+    @include min-width($--md) {
+      @include text(1.4rem, 2.8rem);
+    }
+    @include min-width($--lg) {
+      @include text(2rem, 4rem);
+    }
+    @include min-width($--xl) {
+      @include text(2.6rem, 4.2rem);
+    }
+    svg {
+      @include prop('width', 18.4rem, 19.3rem, 29.2rem, 35.5rem);
+      @include prop('height', 18.4rem, 19.3rem, 29.2rem, 35.5rem);
+    }
+  }
+}

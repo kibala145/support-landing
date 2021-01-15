@@ -1,0 +1,101 @@
+@import 'Mixins';
+.AppBubblesWrapper {
+  &__AppBubble {
+    background-color: #000;
+    position: absolute!important;
+    &::before {
+      background: var(--bg-color);
+    }
+    z-index: 1;
+    left: 50%;
+    transform: translateX(-50%);
+    @include min-width($--md) {
+      transform: translateX(0);
+    }
+    @include max-width($--md) {
+      @for $i from 0 to 5 {
+        &:nth-child(#{$i + 1}) {
+          top: $i * 5% + 20%;
+        }
+      }
+      &[class~='active'] ~ & {
+        transform: translateX(-50%) translateY(65%);
+      }
+    }
+  }
+  &__polytech {
+    --bg-color: var(--color-red);
+    @include min-width($--md) {
+      top: 7.3rem;
+      left: 26.9rem;
+    }
+    @include min-width($--lg) {
+      top: 12.5rem;
+      left: 43.1rem;
+    }
+    @include min-width($--xl) {
+      top: 27rem;
+      left: 66.5rem;
+    }
+  }
+  &__ostrov {
+    --bg-color: linear-gradient(90deg, #EF4142 0%, #FBB040 100%);
+    @include min-width($--md) {
+      left: 1.2rem;
+      top: 27.2rem;
+    }
+    @include min-width($--lg) {
+      top: 45.5rem;
+      left: 16rem;
+    }
+    @include min-width($--xl) {
+      top: 47rem;
+      left: 34.8rem;
+    }
+  }
+  &__leader {
+    --bg-color: var(--color-blue);
+    @include min-width($--md) {
+      top: 65.4rem;
+      left: 5rem;
+    }
+    @include min-width($--lg) {
+      top: 71.2rem;
+      left: 34rem;
+    }
+    @include min-width($--xl) {
+      top: 73.9rem;
+      left: 80.6rem;
+    }
+  }
+  &__platform {
+    --bg-color: var( --color-blue-light);
+    @include min-width($--md) {
+      top: 46.1rem;
+      left: 39.8rem;
+    }
+    @include min-width($--lg) {
+      top: 46.6rem;
+      left: 79.5rem;
+    }
+    @include min-width($--xl) {
+      top: 44.5rem;
+      left: 123.2rem;
+    }
+  }
+  &__archipelag {
+    --bg-color: radial-gradient(62.87% 45.02% at 100% 60.96%, rgba(255, 48, 197, 0.6) 0%, rgba(228, 0, 233, 0) 100%), radial-gradient(44.3% 44.3% at 0% 44.3%, rgba(23, 199, 255, 0.7) 0%, rgba(75, 212, 255, 0) 100%), radial-gradient(75.42% 48.03% at 90.35% 12.94%, #7300E6 8.57%, rgba(152, 49, 255, 0) 100%), linear-gradient(142.25deg, #00D35A 16.64%, #6C4CEF 40.16%, #0024C6 53.4%, #F856FF 96.17%);
+    @include min-width($--md) {
+      top: 89.8rem;
+      left: 37rem;
+    }
+    @include min-width($--lg) {
+      top: 94.4rem;
+      left: 78.6rem;
+    }
+    @include min-width($--xl) {
+      top: 111.6rem;
+      left: 119rem;
+    }
+  }
+}

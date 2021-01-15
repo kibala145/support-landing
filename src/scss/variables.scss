@@ -1,5 +1,19 @@
 :root {
+  /* FONTS */
   --font-primary: 'RF Dewi Extended';
   
+  /* COLORS */
   --color-black: #050012;
+  --color-button: #3E00F0;
+  --color-red: #F5502C;
+  --color-orange: #FF7A5C;
+  --color-purple-bg: #3700D4;
+  --color-blue: #0777FB;
+  --color-blue-light: #58B4FF;
+
+  /* BREAKPOINTS */
+  --sm: 375px;
+  --md: 768px;
+  --lg: 1366px;
+  --xl: 1920px;
 }

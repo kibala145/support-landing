@@ -1,0 +1,14 @@
+@mixin hoverable {
+  @media (hover: hover) and (pointer: fine) {
+    @content;
+  }
+}
+
+@mixin onlyHover {
+  @include hoverable() {
+
+    &:hover {
+      @content
+    }
+  }
+}

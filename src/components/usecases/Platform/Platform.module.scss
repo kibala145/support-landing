@@ -1,0 +1,50 @@
+@import 'Mixins';
+.Platform {
+  [class~='imagesWrapper'] {
+    position: relative;
+    display: grid;
+    grid-template-columns: 48.7rem 22.9rem;
+    margin-top: 7.2rem;
+    gap: 2.8rem;
+    @include min-width($--lg) {
+      grid-template-columns: repeat(2, 50.7rem);
+      gap: 3.2rem;
+      padding-bottom: 8.2rem;
+    }
+    [class~='screen1'] {
+      position: absolute;
+      left: 50.9rem;
+      top: 0;
+      width: 22.9rem;
+      @include min-width($--lg) {
+        left: 53.9rem;
+        top: 16.7rem;
+      }
+    }
+    [class~='screen2'] {
+      grid-column: 1;
+      width: 100%;
+    }
+    [class~='screen4'] {
+      grid-row: 1;
+      // width: 100%;
+      @include min-width($--lg) {
+        position: absolute;
+        left: 53.9rem;
+        top: 0;
+        width: 50.7rem;
+      }
+    }
+    [class~='screen3'] {
+      grid-column: 1;
+    }
+  }
+  [class~='swiper-container'] [class~='swiper-slide'] {
+    &[class~='screen1'] {
+      width: 22.9rem;
+    }
+    &[class~='screen2'], &[class~='screen3'], &[class~='screen4'] {
+      width: 41.4rem;
+    }
+  }
+}

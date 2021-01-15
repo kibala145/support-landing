@@ -1,1 +1,22 @@
-.Polytech {}
+@import 'Mixins';
+.Polytech {
+  [class~='imagesWrapper'] {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-top: 7.2rem;
+    [class~='imageWrapper'] {
+      @include prop('width', 28.1rem, 22.9rem, 32.8rem);
+    }
+    [class~='imageWrapper'] + [class~='imageWrapper'] {
+      @include prop('margin-left', 1.6rem, 2.8rem, 3.2rem, 3.6rem);
+    }
+  }
+  [class~='swiper-container'] [class~='swiper-slide'] {
+    &[class~='screen1'],
+    &[class~='screen2'],
+    &[class~='screen3'] {
+      width: 28.1rem;
+    }
+  }
+}

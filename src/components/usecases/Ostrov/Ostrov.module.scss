@@ -1,0 +1,58 @@
+@import 'Mixins';
+.Ostrov {
+  [class~='imagesWrapper'] {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-top: 7.2rem;
+    gap: 2.8rem;
+    @include min-width($--lg) {
+      display: grid;
+      grid-template-columns: repeat(2, 50.7rem);
+      gap: 3.2rem;
+      padding-bottom: 8.2rem;
+    }
+    @include min-width($--xl) {
+      grid-template-columns: repeat(2, 59.4rem);
+      gap: 3.6rem;
+    }
+    [class~='screen1'],
+    [class~='screen2'],
+    [class~='screen3'] {
+      width: 61.5rem;
+      @include min-width($--lg) {
+        width: auto;
+      }
+    }
+    [class~='screen2'] {
+      grid-column: 1;
+    }
+    [class~='screen4'] {
+      grid-row: 1;
+    }
+    [class~='screen3'] {
+      grid-column: 1;
+      @include min-width($--lg) {
+        position: absolute;
+        left: 53.9rem;
+        top: 0;
+        width: 50.7rem;
+      }
+      @include min-width($--xl) {
+        width: 59.4rem;
+        left: 62.9rem;
+      }
+    }
+  }
+  [class~='swiper-container'] [class~='swiper-slide'] {
+    &[class~='screen1'] {
+      width: 32.8rem;
+    }
+    &[class~='screen2'] {
+      width: 34.1rem;
+    }
+    &[class~='screen3'] {
+      width: 30rem;
+    }
+  }
+}

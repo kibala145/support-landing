@@ -1,0 +1,88 @@
+@import 'Mixins';
+.AppUsecase {
+  &__label {
+    @include text(1.6rem, 2rem);
+    letter-spacing: 0.06em;
+    font-weight: 700;
+    opacity: 0.5;
+  }
+  &__whatDid {
+    margin-bottom: 9.2rem;
+    p {
+      @include text(2rem, 3.6rem);
+      margin-top: 2.4rem;
+    }
+  }
+  &__main {
+    padding-top: 4.8rem;
+    border-top: 0.1rem solid rgba(#fff, 0.5);
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 6rem;
+    @include min-width($--lg) {
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: 3.2rem;
+    }
+  }
+  &__solution {
+    ul {
+      list-style: none;
+      padding-inline-start: 6.4rem;
+      li {
+        @include text(1.6rem, 2.8rem);
+        letter-spacing: 0.05em;
+        position: relative;
+        &::before {
+          position: absolute;
+          left: 0;
+          top: 0;
+          transform: translate(-150%, 45%);
+          content: '';
+          display: flex;
+          width: 4.2rem;
+          height: 1.7rem;
+          background: url('~@/images/icons/list_bullet_finger.svg');
+        }
+      }
+      li + li {
+        margin-top: 4rem;
+      }
+    }
+  }
+  &__goal {
+    p {
+      @include text(2.4rem, 3.6rem);
+      letter-spacing: 0.03em;
+      font-weight: 900;
+      margin-top: 2.8rem;
+    }
+  }
+  &__result {
+    @extend .AppUsecase__whatDid;
+    margin-bottom: 0;
+    order: 1;
+    @include min-width($--lg) {
+      order: 0;
+    }
+  }
+  &__bottom {
+    border-top: 0.1rem solid #fff;
+    margin-top: 10.4rem;
+  }
+
+  [class~='swiper-container'] {
+    margin-top: 3.6rem;
+    overflow: visible;
+    [class~='swiper-slide'] + [class~='swiper-slide'] {
+      @include prop('margin-left', 1.6rem, 2.8rem, 3.2rem, 3.6rem);
+    }
+    [class~='swiper-slide'] {
+      width: auto;
+    }
+  }
+
+  [class~='imageWrapper'] img, [class~='swiper-slide'] img {
+    width: 100%;
+    height: auto;
+  }
+}

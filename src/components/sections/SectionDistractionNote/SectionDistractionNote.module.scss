@@ -1,0 +1,41 @@
+@import 'Mixins';
+.SectionDistractionNote {
+  background-image: url('~@/images/hand2.png'), url('~@/images/icons/glow.svg');
+  background-repeat: no-repeat;
+  background-position: -25vw calc(100% - 20vw), 35vw calc(100% - 5vw);
+  background-size: 100vw, 55vw;
+  padding-bottom: 60vw;
+  @include min-width($--md) {
+    @include text(3.2rem, 5.7rem);
+    background-position: -5vw calc(100% - 3vw), 60vw 100%;
+    background-size: 75vw, 35vw;
+    padding-bottom: 40rem;
+  }
+  @include min-width($--lg) {
+    @include text(4.4rem, 7.2rem);
+    background-size: 60vw, 25vw;
+  }
+  @include min-width($--xl) {
+    @include text(5.2rem, 8.4rem);
+    background-position: 0 calc(100% - 3vw), 60vw 100%;
+    background-size: 50vw, 25vw;
+  }
+  p {
+    @include text(2.4rem, 4rem);
+    font-weight: 300;
+    font-style: italic;
+    @include min-width($--md) {
+      @include text(3.2rem, 5.7rem);
+    }
+    @include min-width($--lg) {
+      @include text(4.4rem, 7.2rem);
+    }
+    @include min-width($--xl) {
+      @include text(5.2rem, 8.4rem);
+    }
+    b {
+      font-weight: 800;
+      font-style: normal;
+    }
+  }
+}

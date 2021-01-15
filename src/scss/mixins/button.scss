@@ -1,8 +1,16 @@
-@mixin button-unstyled {
+@import './hover.scss';
+
+@mixin button--unstyled {
   display: flex;
+  align-items: center;
   padding: 0;
   border: none;
   background: none;
   outline: none;
   cursor: pointer;
+}
+
+@mixin button--primary {
+  @include button--unstyled;
+  @include a--button;
 }

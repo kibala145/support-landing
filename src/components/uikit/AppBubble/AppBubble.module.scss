@@ -1,0 +1,87 @@
+@import 'Mixins';
+.AppBubble {
+  $wrapper: &;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.1rem solid;
+  border-radius: 50%;
+  border-color: var(--color-orange);
+  transition: 0.2s;
+  overflow: hidden;
+  /* @include onlyHover {
+    background-color: var(--color-orange);
+    border-color: transparent!important;
+  } */
+  @include size(35.1rem);
+  @include min-width($--md) {
+    @include size(35.8rem);
+  }
+  @include min-width($--xl) {
+    @include size(42rem);
+  }
+  &__text {
+    @include text(1.6rem, 2.8rem);
+    font-weight: 900;
+    max-width: 66%;
+    z-index: 1;
+    @include min-width($--md) {
+      @include text(2rem, 3.6rem);
+    }
+    @include min-width($--xl) {
+      @include text(2.4rem, 4rem);
+    }
+  }
+  &::before {
+    display: block;
+    content: '';
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: 0.2s;
+    z-index: -1;
+  }
+  &[class~='active'] {
+    border-color: transparent;
+    @include min-width($--md) {
+      z-index: 2;
+    }
+    // transform: scale(0.9);
+    &::before {
+      opacity: 1;
+    }
+    #{$wrapper}__toggleActive {
+      span {
+        opacity: 0.8;
+      }
+      svg {
+        opacity: 0;
+      }
+    }
+  }
+  &__toggleActive {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    span {
+      @include text(1.2rem, 1.4rem);
+      letter-spacing: 0.02em;
+      width: 25rem;
+      position: absolute;
+      top: 7.6rem;
+      opacity: 0;
+      transition: 0.4s;
+    }
+    svg {
+      transition: 0.2s;
+    }
+  }
+}

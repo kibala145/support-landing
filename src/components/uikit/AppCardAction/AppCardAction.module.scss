@@ -1,0 +1,93 @@
+@import 'Mixins';
+.AppCardAction {
+  $wrapper: &;
+  display: flex;
+  flex-direction: column;
+  @include min-width($--lg) {
+    flex-direction: row;
+    min-height: 38rem;
+    #{$wrapper}__header {
+      flex-grow: 1;
+      flex-basis: 35%;
+      border-top-right-radius: 0;
+      border-bottom-left-radius: 2rem;
+    }
+    #{$wrapper}__body {
+      flex-grow: 1;
+      flex-basis: 65%;
+      border-top-right-radius: 2rem;
+      border-bottom-left-radius: 0;
+      border-left: transparent;
+      border-top-color: var(--color-orange);
+    }
+    #{$wrapper}__description {
+      margin-top: 0;
+      margin-bottom: auto;
+    }
+    &.reverse {
+      flex-direction: row-reverse;
+      #{$wrapper}__header {
+        border-top-right-radius: 2rem;
+        border-bottom-right-radius: 2rem;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-left: transparent;
+        border-top-color: var(--color-orange);
+      }
+      #{$wrapper}__body {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-top-left-radius: 2rem;
+        border-bottom-left-radius: 2rem;
+        border-right: transparent;
+        border-left: 0.1rem solid var(--color-orange);
+      }
+    }
+  }
+  &__header {
+    @include prop('min-height', 19.2rem, 13.2rem, auto);
+    display: flex;
+    background-color: var(--color-black);
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    padding: 2.4rem;
+  }
+  &__title {
+    @include text(2.2rem, 3.6rem);
+    letter-spacing: 0.03em;
+    margin-bottom: auto;
+    color: #fff;
+    font-weight: 800;
+    @include min-width($--lg) {
+      @include text(2.8rem, 4.8rem);
+    }
+    @include min-width($--xl) {
+      @include text(3.2rem, 5.2rem);
+    }
+  }
+  &__body {
+    display: flex;
+    min-height: 21.2rem;
+    padding: 2.8rem;
+    // background-color: var(--color-purple-bg);
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    border: 0.1rem solid var(--color-orange);
+    border-top-color: transparent;
+  }
+  &__description {
+    @include text(1.4rem, 2.8rem);
+    letter-spacing: 0.02em;
+    font-weight: 600;
+    margin-bottom: auto;
+    @include min-width($--md) {
+      @include text(1.6rem, 3.2rem);
+    }
+    @include min-width($--lg) {
+      @include text(1.8rem, 3.2rem);
+    }
+    @include min-width($--xl) {
+      @include text(2rem, 4rem);
+    }
+  }
+}

@@ -1,0 +1,269 @@
+@import 'Mixins';
+
+.SectionBubbles {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1rem;
+  padding-top: 0;
+  & > div {
+    height: 112.8rem;
+    position: relative;
+    width: 37rem;
+    @include min-width($--md) {
+      height: 92rem;
+      width: auto;
+    }
+    @include min-width($--lg) {
+      height: 105.1rem;
+    }
+    @include min-width($--xl) {
+      height: 114.6rem;
+    }
+  }
+  &__AppBubbleText {
+    position: absolute;
+    span {
+      text-transform: none;
+    }
+    &:nth-child(1) {
+      top: 0;
+      left: 1.2rem;
+      svg {
+        @include size(17.9rem);
+      }
+      span {
+        @include text(1.1rem, 1.8rem);
+      }
+      @include min-width($--md) {
+        top: 0;
+        left: 4.6rem;
+        svg {
+          @include size(19.3rem);
+        }
+        span {
+          @include text(1.2rem, 2rem);
+        }
+      }
+      @include min-width($--lg) {
+        top: 78.2rem;
+        left: 0;
+        svg {
+          @include size(26.9rem);
+        }
+        span {
+          @include text(1.6rem, 2.8rem);
+        }
+      }
+      @include min-width($--xl) {
+        top: 83.3rem;
+        left: 20.4rem;
+        svg {
+          @include size(31.4rem);
+        }
+      }
+    }
+    &:nth-child(2) {
+      top: 21rem;
+      right: 2rem;
+      svg {
+        @include size(23.4rem);
+      }
+      span {
+        @include text(1.6rem, 2.8rem);
+      }
+      @include min-width($--md) {
+        top: 12rem;
+        left: 26rem;
+        right: auto;
+        svg {
+          @include size(22rem);
+        }
+        span {
+          @include text(1.4rem, 2.4rem);
+        }
+      }
+      @include min-width($--lg) {
+        top: 0;
+        left: 9rem;
+        svg {
+          @include size(33rem);
+        }
+        span {
+          @include text(2rem, 3.6rem);
+        }
+      }
+      @include min-width($--xl) {
+        left: 21.2rem;
+        svg {
+          @include size(37.5rem);
+        }
+        span {
+          @include text(2.4rem, 4rem);
+        }
+      }
+    }
+    &:nth-child(3) {
+      top: 37rem;
+      left: 1.2rem;
+      svg {
+        @include size(23.4rem);
+      }
+      span {
+        @include text(1.6rem, 2.8rem);
+      }
+      @include min-width($--md) {
+        top: 24.8rem;
+        left: 1.4rem;
+        svg {
+          @include size(26rem);
+        }
+        span {
+          @include text(1.7rem, 3.2rem);
+        }
+      }
+      @include min-width($--lg) {
+        top: 38rem;
+        left: 0rem;
+        svg {
+          @include size(33rem);
+        }
+        span {
+          @include text(2rem, 3.6rem);
+        }
+      }
+      @include min-width($--xl) {
+        top: 45.1rem;
+        left: 0;
+        svg {
+          @include size(37.5rem);
+        }
+        span {
+          @include text(2.4rem, 4rem);
+        }
+      }
+    }
+    &:nth-child(4) {
+      top: 57rem;
+      right: 1.2rem;
+      svg {
+        @include size(17.8rem);
+      }
+      span {
+        @include text(1.1rem, 1.8rem);
+      }
+      @include min-width($--md) {
+        top: 56.8rem;
+        left: 14rem;
+        right: auto;
+        svg {
+          @include size(19.3rem);
+        }
+        span {
+          @include text(1.2rem, 2rem);
+        }
+      }
+      @include min-width($--lg) {
+        top: 59.9rem;
+        left: 35.8rem;
+        right: auto;
+        svg {
+          @include size(27rem);
+        }
+        span {
+          @include text(1.6rem, 2.8rem);
+        }
+      }
+      @include min-width($--xl) {
+        top: 63rem;
+        left: 51.2rem;
+        svg {
+          @include size(25.2rem);
+        }
+      }
+    }
+    &:nth-child(5) {
+      top: 73rem;
+      left: 1.2rem;
+      svg {
+        @include size(25.6rem)
+      }
+      span {
+        @include text(1.6rem, 2.8rem)
+      }
+      @include min-width($--md) {
+        top: 35rem;
+        left: 37rem;
+        svg {
+          @include size(26.2rem)
+        }
+        span {
+          @include text(1.7rem, 3.2rem)
+        }
+      }
+      @include min-width($--lg) {
+        top: 20.7rem;
+        left: 44.8rem;
+        svg {
+          @include size(33rem)
+        }
+        span {
+          @include text(2rem, 3.6rem)
+        }
+      }
+      @include min-width($--xl) {
+        top: 23.1rem;
+        left: 58.1rem;
+        svg {
+          @include size(37.7rem)
+        }
+        span {
+          @include text(2.4rem, 4rem)
+        }
+      }
+    }
+    &:nth-child(6) {
+      top: 91.6rem;
+      right: 1.2rem;
+      svg {
+        @include size(21.2rem);
+      }
+      span {
+        @include text(1.6rem, 2.8rem);
+      }
+      @include min-width($--md) {
+        top: 65.7rem;
+        left: 35.6rem;
+        right: auto;
+        svg {
+          @include size(26.2rem);
+        }
+        span {
+          @include text(1.7rem, 3.2rem);
+        }
+      }
+      @include min-width($--lg) {
+        top: 68.8rem;
+        left: auto;
+        right: 0;
+        svg {
+          @include size(33rem);
+        }
+        span {
+          @include text(2rem, 3.6rem);
+        }
+      }
+      @include min-width($--xl) {
+        top: 67.3rem;
+        left: 83.3rem;
+        right: auto;
+        svg {
+          @include size(37.6rem);
+        }
+        span {
+          @include text(2.4rem, 4rem);
+        }
+      }
+    }
+  }
+}

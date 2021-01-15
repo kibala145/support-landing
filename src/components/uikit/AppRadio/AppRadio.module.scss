@@ -1,0 +1,13 @@
+@import 'Mixins';
+.AppRadio {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  > label {
+    margin: 0 1.6rem 2rem 0;
+    @include min-width($--xl) {
+      margin-right: 2rem;
+    }
+  }
+}

@@ -1,0 +1,82 @@
+@import 'Mixins';
+.App {
+  display: flex;
+  flex-direction: column;
+  &__SectionMain {
+    padding-top: 5.2rem;
+    @include min-width($--md) {
+      padding-top: 8rem;
+    }
+    @include min-width($--lg) {
+      padding-top: 12rem;
+    }
+    @include min-width($--xl) {
+      padding-top: 12.8rem;
+    }
+  }
+  &__SectionReasons {
+    background-color: var(--color-purple-bg);
+  }
+  &__groupTop {
+    background-image: url('~@/images/hand.png'), url('~@/images/icons/glow.svg');
+    background-repeat: no-repeat;
+    background-position: calc(100% + 12rem) 34.4rem, calc(100% - 1.2rem) 1.2rem;
+    background-size: 32rem, 30.4rem;
+    @include min-width($--md) {
+      background-size: 49.6rem, 42.2rem;
+    }
+    @include min-width($--lg) {
+      background-size: 70.6rem, 61.1rem;
+      background-position: calc(100% + 12rem) 42.7rem, calc(100% - 16rem) 3.6rem;
+    }
+    @include min-width($--xl) {
+    }
+  }
+  &__groupMain {
+    background-color: var(--color-purple-bg);
+    margin-top: 8.4rem;
+    padding-bottom: 12.6rem;
+    @include min-width($--md) {
+      padding-bottom: 9.8rem;
+    }
+    @include min-width($--lg) {
+      padding-bottom: 14.7rem;
+    }
+    @include min-width($--xl) {
+      padding-bottom: 20.8rem;
+    }
+  }
+  &__SectionBubbles {
+    margin-top: 10.8rem;
+    @include min-width($--md) {
+      margin-top: 6.1rem;
+    }
+    @include min-width($--lg) {
+      margin-top: 12.7rem;
+    }
+    @include min-width($--xl) {
+      margin-top: 15.8rem;
+    }
+  }
+  &__SectionDistractionNote {
+    margin-top: 5.2rem;
+    @include min-width($--md) {
+      margin-top: 7.4rem;
+    }
+    @include min-width($--lg) {
+      margin-top: 16.3rem;
+    }
+  }
+  &__SectionAccordion + &__SectionAccordion {
+    margin-top: 10.4rem;
+    @include min-width($--md) {
+      margin-top: 10rem;
+    }
+    @include min-width($--lg) {
+      margin-top: 17.2rem;
+    }
+    @include min-width($--xl) {
+      margin-top: 18.4rem;
+    }
+  }
+}

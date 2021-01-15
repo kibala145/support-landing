@@ -1,4 +1,4 @@
-@import '@/scss/mixins/';
+@import 'Mixins';
 
 .AppDialog {
   position: absolute;
@@ -8,17 +8,30 @@
   bottom: 0;
   background-color: var(--color-black);
   color: #fff;
+  padding: 7.2rem 1.2rem 8.4rem;
+  overflow: hidden scroll;
+  @include min-width($--lg) {
+    padding: 8.4rem;
+  }
   &__inner {
+    display: flex;
+    flex-direction: column;
     max-width: 122.4rem;
-    position: relative;
-    margin: 8.4rem auto auto;
+    margin: 0 auto;
+    @include min-width($--lg) {
+      position: relative;
+    }
   }
   &__close {
-    @include button-unstyled;
+    @include button--unstyled;
     color: #fff;
     position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(100%, -100%);
+    top: 1.2rem;
+    right: 1.2rem;
+    @include min-width($--lg) {
+      top: 0;
+      right: 0;
+      transform: translate(100%, -100%);
+    }
   }
 }

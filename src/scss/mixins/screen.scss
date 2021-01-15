@@ -1,0 +1,31 @@
+$--sm: 375px;
+$--md: 768px;
+$--lg: 1366px;
+$--xl: 1920px;
+
+@mixin min-width($size) {
+  @media only screen and (min-width: $size) {
+    @content;
+  }
+}
+
+@mixin max-width($size) {
+  @media only screen and (max-width: $size - 1px) {
+    @content;
+  }
+}
+
+@mixin prop($key, $values...) {
+  $sizes: $--sm, $--md, $--lg, $--xl;
+
+  #{$key}: nth($values, 1);
+  @if length($values) > 1 {
+    @for $index from 2 through length($values) {
+      $value: nth($values, $index);
+      $size: nth($sizes, $index);
+      @include min-width($size) {
+        #{$key}: $value;
+      }
+    }
+  }
+}

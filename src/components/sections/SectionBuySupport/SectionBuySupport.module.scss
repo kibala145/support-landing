@@ -1,0 +1,113 @@
+@import 'Mixins';
+
+.SectionBuySupport {
+  padding: 11rem 0 16rem;
+  h3 {
+    @include text(4.4rem, 4.8rem);
+    font-weight: 800;
+    i {
+      font-weight: 300;
+    }
+    @include min-width($--lg) {
+      @include text(6.4rem, 7.7rem);
+    }
+    @include min-width($--xl) {
+      @include text(7.2rem, 8.6rem);
+    }
+  }
+  form {
+    margin-top: 8.4rem;
+    display: flex;
+    flex-direction: column;
+  }
+  input {
+    @include text(1.8rem, 2.2rem);
+    letter-spacing: 0.02em;
+    color: #fff;
+    background-color: #1E133A;
+    border-radius: 4.8rem;
+    border: none;
+    padding: 2rem 2.8rem;
+    transition: 0.4s;
+    caret-color: var(--color-orange);
+    &::placeholder {
+      color: #fff;
+    }
+    &:focus {
+      outline: none;
+      background-color: lighten(#140C28, 15%);
+    }
+    @include min-width($--md) {
+      max-width: 48.6rem;
+    }
+    @include min-width($--lg) {
+      max-width: 68.7rem;
+    }
+    @include min-width($--lg) {
+      max-width: 73.6rem;
+    }
+  }
+  input + input {
+    margin-top: 2.4rem;
+  }
+  button {
+    @include button--primary;
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.6;
+      @include onlyHover {
+        background-color: var(--color-button);
+      }
+      &[class~='pressed'] {
+        opacity: 1;
+        background-color: #5E2AF2;
+      }
+    }
+  }
+  &__AppRadio {
+    margin-top: 3.2rem;
+  }
+  &__label {
+    @include text(1.6rem, 2rem);
+    letter-spacing: 0.02em;
+    color: rgba(255, 255, 255, 0.56);
+    margin-top: 5.6rem;
+    @include min-width($--lg) {
+      @include text(2rem, 2.4rem);
+      margin-top: 7.6rem;
+    }
+    @include min-width($--xl) {
+      @include text(2.4rem, 2.88rem);
+      margin-top: 8rem;
+    }
+  }
+  &__actions {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 4rem;
+    @include min-width($--md) {
+      flex-direction: row;
+      align-items: center;
+    }
+    @include min-width($--lg) {
+      margin-top: 5.6rem;
+    }
+    @include min-width($--xl) {
+      margin-top: 6.8rem;
+    }
+    span {
+      @include text(1.8rem, 2.4rem);
+      color: var(--color-red);
+      margin-top: 4.8rem;
+      transition: 0.5s;
+      @include min-width($--md) {
+        margin-left: 4.8rem;
+        margin-top: 0;
+      }
+      @include min-width($--xl) {
+        @include text(2rem, 2.4rem);
+      }
+    }
+  }
+}

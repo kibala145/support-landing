@@ -1,0 +1,23 @@
+@import 'Mixins';
+
+.AppBubbleText {
+  position: relative;
+  display: inline-flex;
+  &__text {
+    // @include text(1.1rem, 1.8rem);
+    word-break: break-word;
+    text-transform: uppercase;
+    width: 80%;
+    text-align: center;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @include min-width($--md) {
+      letter-spacing: 0.05em;
+    }
+  }
+}

@@ -8,8 +8,40 @@
       "path": "src/components",
       "withStyle": true,
       "withTest": false,
+      "withStory": true,
+      "withLazy": true,
+      "customTemplates": {
+        "component": "templates/component.tsx",
+        "lazy": "templates/lazy.tsx",
+        "story": "templates/story.tsx",
+        "style": "templates/style.scss"
+      }
+    },
+    "uikit": {
+      "path": "src/components/uikit",
+      "withStyle": true,
+      "withTest": false,
+      "withStory": true,
+      "withLazy": true,
+      "customTemplates": {
+        "component": "templates/component.tsx",
+        "lazy": "templates/lazy.tsx",
+        "story": "templates/story.tsx",
+        "style": "templates/style.scss"
+      }
+    },
+    "section": {
+      "path": "src/components/sections",
+      "withStyle": true,
+      "withTest": false,
       "withStory": false,
-      "withLazy": true
+      "withLazy": true,
+      "customTemplates": {
+        "component": "templates/componentSection.tsx",
+        "lazy": "templates/lazy.tsx",
+        "story": "templates/story.tsx",
+        "style": "templates/style.scss"
+      }
     }
   }
 }

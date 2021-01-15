@@ -1,0 +1,53 @@
+@import 'Mixins';
+.Archipelag {
+  [class~='imagesWrapper'] {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 7.2rem;
+    gap: 2.8rem;
+    [class~='screen1'] {
+      width: 61.5rem;
+      @include min-width($--lg) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50.7rem;
+      }
+      @include min-width($--xl) {
+        width: 54.6rem;
+      }
+    }
+    [class~='screen2'], [class~='screen3'] {
+      width: 48.7rem;
+      @include min-width($--lg) {
+        grid-column: 2;
+      }
+    }
+    @include min-width($--lg) {
+      display: grid;
+      grid-template-columns: repeat(2, 50.7rem);
+      gap: 3.2rem;
+      padding-bottom: 8.2rem;
+    }
+    @include min-width($--xl) {
+      grid-template-columns: 54.6rem 44.5rem;
+    }
+    /* img {
+      @include prop('width', 28.1rem, 22.9rem, 32.8rem, 31.5rem);
+    }
+    img + img {
+      @include prop('margin-left', 1.6rem, 2.8rem, 3.2rem, 3.6rem);
+    } */
+  }
+  [class~='swiper-container'] [class~='swiper-slide'] {
+    &[class~='screen1'] {
+      width: 32.8rem;
+    }
+    &[class~='screen2'],
+    &[class~='screen3'] {
+      width: 38.4rem;
+    }
+  }
+}

@@ -1,0 +1,56 @@
+@import 'Mixins';
+.Leader {
+  [class~='imagesWrapper'] {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 7.2rem;
+    gap: 2.8rem;
+    @include min-width($--lg) {
+      display: grid;
+      grid-template-columns: repeat(2, 50.7rem);
+      gap: 3.2rem;
+      padding-bottom: 8.2rem;
+    }
+    @include min-width($--xl) {
+      grid-template-columns: 52.5rem 49.4rem;
+      gap: 3.6rem;
+    }
+    [class~='screen1'],
+    [class~='screen2'] {
+      width: 61.5rem;
+      @include min-width($--lg) {
+        width: auto;
+        grid-column: 1;
+      }
+    }
+    [class~='screen3'] {
+      width: 48.7rem;
+      img {
+        border-radius: 0.5rem;
+      }
+      @include min-width($--lg) {
+        position: absolute;
+        left: 53.9rem;
+        top: 0;
+        width: 48.3rem;
+      }
+      @include min-width($--xl) {
+        width: 50.2rem;
+        left: 55.9rem;
+      }
+    }
+  }
+  [class~='swiper-container'] [class~='swiper-slide'] {
+    &[class~='screen1'] {
+      width: 32.8rem;
+    }
+    &[class~='screen2'] {
+      width: 36.8rem;
+    }
+    &[class~='screen3'] {
+      width: 30rem;
+    }
+  }
+}
