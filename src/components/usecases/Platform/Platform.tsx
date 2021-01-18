@@ -4,6 +4,13 @@ import styles from './Platform.module.scss'
 import { getImages } from '../utils/getImages'
 
 const imgs = getImages(require.context(`@/images/usecases/platform`, false, /.png$/))
+const imgsPreview = getImages(require.context(`@/images/usecases/platform/preview`, false, /.png$/))
+
+const imgsAdapted = imgs.map((item) => ({
+  id: item.id,
+  original: item.content,
+  small: imgsPreview.find((i) => item.id === i.id)?.content ?? item.content
+}))
 
 const content: Props['content'] = {
   whatDid: 'Запустили службу персональных помощников для сотрудников государственной организации.',
@@ -16,6 +23,6 @@ const content: Props['content'] = {
   ]
 } as const
 
-const Platform: React.FC = ({}) => <AppUsecase imgs={imgs} content={content} className={styles.Platform}></AppUsecase>
+const Platform: React.FC = ({}) => <AppUsecase imgs={imgsAdapted} content={content} className={styles.Platform} />
 
 export default Platform

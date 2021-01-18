@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styles from './AppUsecase.module.scss'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { useBreakpoint } from '@/contexts/ViewportContext'
+import AppImageBlurredUp from '@/components/uikit/AppImageBlurredUp/AppImageBlurredUp'
 
 const AppUsecase: React.FC<Props> = ({ content, imgs, className = '' }) => {
   const { current } = useBreakpoint()
@@ -14,6 +15,13 @@ const AppUsecase: React.FC<Props> = ({ content, imgs, className = '' }) => {
     }, 100)
   }, [])
 
+  const image = (item: IImage) =>
+    item.original && item.small ? (
+      <AppImageBlurredUp original={item.original} small={item.small} />
+    ) : (
+      <img src={item.content} />
+    )
+
   if (current === 'sm') {
     appUsecaseInner = showSwiper && (
       <Swiper
@@ -25,7 +33,7 @@ const AppUsecase: React.FC<Props> = ({ content, imgs, className = '' }) => {
       >
         {imgs.map((item, index) => (
           <SwiperSlide key={index} className={item.id}>
-            <img src={item.content} />
+            {image(item)}
           </SwiperSlide>
         ))}
       </Swiper>
@@ -35,7 +43,7 @@ const AppUsecase: React.FC<Props> = ({ content, imgs, className = '' }) => {
       <div className="imagesWrapper">
         {imgs.map((item, index) => (
           <div key={index} className={`imageWrapper ${item.id}`}>
-            <img src={item.content} />
+            {image(item)}
           </div>
         ))}
       </div>
@@ -73,6 +81,12 @@ const AppUsecase: React.FC<Props> = ({ content, imgs, className = '' }) => {
   )
 }
 
+interface IImage {
+  content?: string
+  id?: string
+  original?: string
+  small?: string
+}
 export interface Props {
   content: Readonly<{
     whatDid: string
@@ -80,7 +94,7 @@ export interface Props {
     result: string
     solution: ReadonlyArray<string>
   }>
-  imgs: { content: string; id: string }[]
+  imgs: IImage[]
   className?: string
 }
 

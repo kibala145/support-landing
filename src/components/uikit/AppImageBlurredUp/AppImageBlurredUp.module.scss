@@ -1,0 +1,7 @@
+.AppImageBlurredUp {
+  transition: filter 0.3s ease-in-out;
+  filter: blur(none);
+  &--loading {
+    filter: blur(2rem);
+  }
+}

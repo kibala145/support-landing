@@ -28,7 +28,7 @@
     border-radius: 4.8rem;
     border: none;
     padding: 2rem 2.8rem;
-    transition: 0.4s;
+    transition: background-color 0.4s ease-in-out;
     caret-color: var(--color-orange);
     &::placeholder {
       color: #fff;
@@ -100,7 +100,7 @@
       @include text(1.8rem, 2.4rem);
       color: var(--color-red);
       margin-top: 4.8rem;
-      transition: 0.5s;
+      transition: opacity 0.5s ease-in-out;
       @include min-width($--md) {
         margin-left: 4.8rem;
         margin-top: 0;

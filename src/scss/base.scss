@@ -13,6 +13,14 @@ body {
   color: #fff;
 }
 
+a {
+  color: #fff;
+  transition: color 0.2s ease-in-out;
+  @include onlyHover {
+    color: var(--color-orange);
+  }
+}
+
 * {
   box-sizing: border-box;
 }
